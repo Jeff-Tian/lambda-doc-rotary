@@ -18,6 +18,9 @@
     "run:docker": "docker run -p 9000:8080 lambda-doc-rotary:latest",
     "curl:local": "curl -XPOST \"http://localhost:9000/2015-03-31/functions/function/invocations\" -d '{}'",
     "local": "tsc && serverless invoke local --function docrotary",
-    "deploy": "tsc && serverless deploy"
+    "deploy": "tsc && source .env && serverless deploy",
+    "install:aws": "sh install-aws.sh",
+    "sops:enc": "sops -e --input-type dotenv .env > enc.env",
+    "sops:dec": "sops -d --input-type dotenv enc.env > .env"
   }
 }
