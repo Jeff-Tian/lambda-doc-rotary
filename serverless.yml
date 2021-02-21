@@ -1,0 +1,10 @@
+service: doc-rotary-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  docrotary:
+    handler: src/index.handler
+    name: serverless-doc-rotary

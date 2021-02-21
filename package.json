@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.72",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "chai": "^4.3.0",
+    "mocha": "^8.3.0",
+    "serverless": "^2.25.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:docker": "docker build -t lambda-doc-rotary .",
+    "run:docker": "docker run -p 9000:8080 lambda-doc-rotary:latest",
+    "curl:local": "curl -XPOST \"http://localhost:9000/2015-03-31/functions/function/invocations\" -d '{}'",
+    "local": "tsc && serverless invoke local --function docrotary",
+    "deploy": "tsc && serverless deploy"
+  }
+}
